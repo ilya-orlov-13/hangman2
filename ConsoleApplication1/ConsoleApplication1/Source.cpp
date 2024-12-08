@@ -41,3 +41,10 @@ void displayHangman(int mistakes) {
     if (mistakes == 6) cout << " ||" << endl;
     cout << endl;
 }
+
+bool isWordGuessed(const vector<bool>& guessed) {
+    for (bool g : guessed) {
+        if (!g) return false;
+    }
+    return true;
+}
