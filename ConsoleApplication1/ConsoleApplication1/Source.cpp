@@ -48,3 +48,34 @@ bool isWordGuessed(const vector<bool>& guessed) {
     }
     return true;
 }
+
+void startGame() {
+    const string word = "Hangman";
+    vector<bool> guessed(word.size(), false);
+    int mistakes = 0;
+
+    while (mistakes < 6 and !isWordGuessed(guessed)) {
+        cout << "Слово: ";
+        displayWord(word, guessed);
+
+        cout << "Введите букву: ";
+        char letter;
+        cin >> letter;
+
+        if (!checkLetter(letter, word, guessed)) {
+            mistakes++;
+        }
+
+        displayHangman(mistakes);
+    }
+
+    if (isWordGuessed(guessed)) {
+        cout << "Слово: ";
+        displayWord(word, guessed);
+        displayHangman(mistakes);
+        cout << "Вы выиграли" << "\n";
+    }
+    else {
+        cout << "Вы проиграли, загаданное слово: " << word << "\n";
+    }
+}
