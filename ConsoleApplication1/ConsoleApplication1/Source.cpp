@@ -30,3 +30,14 @@ bool checkLetter(char letter, const string& word, vector<bool>& guessed) {
     }
     return found;
 }
+
+void displayHangman(int mistakes) {
+    cout << "Îøèáêè: " << mistakes << "\n ____\n   |\n";
+    if (mistakes >= 1) cout << "  O\n";
+    if (mistakes >= 2) cout << "  |\n";
+    if (mistakes >= 3) cout << " |";
+    if (mistakes >= 4) cout << "|";
+    if (mistakes >= 5) cout << "|" << endl;
+    if (mistakes == 6) cout << " ||" << endl;
+    cout << endl;
+}
